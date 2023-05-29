@@ -1,4 +1,4 @@
-from captum.attr import Saliency, IntegratedGradients, DeepLift, NoiseTunnel
+from captum.attr import Saliency
 
 class SaliencyGradient:
     """
