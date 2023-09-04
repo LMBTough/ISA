@@ -42,7 +42,7 @@ attributions = [] # init attributions
 for i in range(0, len(img_batch), batch_size):
     img = img_batch[i:i+batch_size].to(device)
     target = target_batch[i:i+batch_size].to(device)
-    attributions.append(mfaba_sharp(model, img, target))
+    attributions.append(ISA(model, img, target))
 if attributions[0].shape.__len__() == 3:
     attributions = [np.expand_dims(attribution, axis=0) for attribution in attributions]
 attributions = np.concatenate(attributions, axis=0)
