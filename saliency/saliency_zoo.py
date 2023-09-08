@@ -113,7 +113,7 @@ def saliencymap(model, data, target):
 
 def ISA(model, x, label, step_size=5000, add_steps=8, minus_steps=8, alpha=0.004, factor=1.3):
     mask = torch.ones_like(x, dtype=torch.long)
-    importance = torch.zeros_like(x.unsqueeze(0))
+    importance = torch.zeros_like(x)
     n_steps = np.array(x.size()[1:]).prod() // step_size + 1
     removed_count = 0
     for i in tqdm(range(n_steps)):
