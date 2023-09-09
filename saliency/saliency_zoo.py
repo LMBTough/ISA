@@ -18,6 +18,7 @@ def fast_ig(model, data, target):
 
 
 def guided_ig(model, data, target):
+    model = model[:2]
     assert len(data.shape) == 4, "Input data must be 4D tensor"
     class_idx_str = 'class_idx_str'
 
@@ -45,6 +46,7 @@ def guided_ig(model, data, target):
 
 
 def agi(model, data, target, epsilon=0.05, max_iter=20, topk=20):
+    model = model[:2]
     assert len(data.shape) == 4, "Input data must be 4D tensor"
     random.seed(3407)
     selected_ids = random.sample(list(range(0, 999)), topk)
